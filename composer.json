@@ -2,7 +2,7 @@
     "name": "drutiny/local-php-security-checker",
     "description": "Drutiny integration for local-php-security-checker",
     "type": "library",
-    "license": "GNU",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Josh Waihi",
