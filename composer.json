@@ -1,0 +1,24 @@
+{
+    "name": "drutiny/local-php-security-checker",
+    "description": "Drutiny integration for local-php-security-checker",
+    "type": "library",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Josh Waihi",
+            "email": "josh.waihi@acquia.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "scripts": {
+        "post-update-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go",
+        "post-install-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go"
+    },
+    "bin": ["bin/local-php-security-checker", "bin/hello"],
+    "autoload": {
+      "psr-4": {
+          "Drutiny\\LocalPhpSecurityChecker\\": "src/"
+      }
+    }
+}
