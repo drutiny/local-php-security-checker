@@ -15,7 +15,6 @@
         "post-update-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go",
         "post-install-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go"
     },
-    "bin": ["bin/local-php-security-checker", "bin/hello"],
     "autoload": {
       "psr-4": {
           "Drutiny\\LocalPhpSecurityChecker\\": "src/"
