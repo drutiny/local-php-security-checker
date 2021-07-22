@@ -1,7 +1,6 @@
 {
     "name": "drutiny/local-php-security-checker",
     "description": "Drutiny integration for local-php-security-checker",
-    "type": "library",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -10,10 +9,15 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
-    "scripts": {
-        "post-update-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go",
-        "post-install-cmd": "Drutiny\\LocalPhpSecurityChecker\\DownloadRelease::go"
+    "type": "composer-plugin",
+    "require": {
+        "composer-plugin-api": "^2.0"
+    },
+    "require-dev": {
+        "composer/composer": "^2.0"
+    },
+    "extra": {
+        "class": "Drutiny\\LocalPhpSecurityChecker\\ComposerPlugin"
     },
     "autoload": {
       "psr-4": {
