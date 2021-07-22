@@ -49,7 +49,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
           )
       );
 
-      $event->getIO()->write("Getting local-php-security-checker Releases....");
+      $event->getIO()->write("Checking for latest local-php-security-checker releases ...");
       $release = file_get_contents(self::GITHUB_RELEASE_URL, false, $context);
       $release = json_decode($release, true);
 
@@ -74,6 +74,10 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
       $symlink = $bin_dir . '/' . self::BIN;
       $filepath = $bin_dir . '/' . $asset_name;
 
+      if (file_exists($filepath)) {
+        return;
+      }
+
       !file_exists($bin_dir) && mkdir($bin_dir, 0777, true);
 
       $event->getIO()->write("Downloading $asset_name...");
@@ -82,7 +86,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
       file_exists($symlink) && unlink($symlink);
 
       chdir($bin_dir);
-      $event->getIO()->write("Symlinking $asset_name to {bin-dir}/" . self::BIN);
+      $event->getIO()->write("Symlinking $asset_name as " . self::BIN . " in composer bin-dir.");
       symlink($asset_name, self::BIN);
 
       chmod($filepath, 0755);
